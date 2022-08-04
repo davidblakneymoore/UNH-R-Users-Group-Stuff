@@ -1,0 +1,12 @@
+
+Example_1 <- list(AAA = 3, BBB = 'cat', CCC = 1:10, DDD = LETTERS, EEE = matrix(1:24, ncol = 4), FFF = mtcars, GGG = list(obj1 = iris, obj2 = 4 , obj3 = state.abb), HHH = summary(lm(iris$Sepal.Length ~ iris$Petal.Length)))
+Example_2 <- with(mtcars, lm(hp ~ mpg))
+Example_3 <- list(Year1Data = data.frame(Depth_cm = rep(c("0-10", "10-20", "20-40"), 3), Site = rep(c("Forest", "Pasture", "Corn_Field"), each = 3), carbon_mg_per_kg = rnorm(9, 18, 5), nitrogen_mg_per_kg = rnorm(9, 4.8, 0.5), Year = 1), Year2Data = data.frame(Depth_cm = rep(c("0-10", "10-20", "20-40"), 3), Site = rep(c("Forest", "Pasture", "Corn_Field"), each = 3), carbon_mg_per_kg = rnorm(9, 19, 5), nitrogen_mg_per_kg = rnorm(9, 5, 0.5), Year = 2), Year3Data = data.frame(Depth_cm = rep(c("0-10", "10-20", "20-40"), 3), Site = rep(c("Forest", "Pasture", "Corn_Field"), each = 3), carbon_mg_per_kg = rnorm(9, 20, 5), nitrogen_mg_per_kg = rnorm(9, 5.2, 0.5), Year = 3))
+Example_4 <- list(Corn_Field = data.frame(phosphorus_mg_per_kg = 1.8, potassium_mg_per_kg = 2.3), Forest = data.frame(phosphorus_mg_per_kg = 0.9, potassium_mg_per_kg = 2.1), Pasture = data.frame(phosphorus_mg_per_kg = 1.2, potassium_mg_per_kg = 1.9))
+Example_5 <- lapply(split(do.call('rbind', Example_3), do.call('rbind', Example_3)$Site), function (x) {split(x, x$Depth_cm)})
+Example_6 <- lapply(Example_5, function (x) {lapply(x, function (y) {data.frame(phosphorus_mg_per_kg = rnorm(1, 2, 0.2), potassium_mg_per_kg = rnorm(1, 3, 0.3))})})
+Example_7 <- list(A = 2, B = list(1:10, 11:20, list('a', 'b', list(1, 1:10))), 'qqq', matrix(1:60, ncol = 6))
+Example_8 <- list(a = c(1, 3, 5), b = c(2,4,6), c = c(9,8,7))
+Example_9 <- matrix(1:24, ncol = 4)
+Example_10 <- array(1:100, dim = c(5, 5, 4))
+Example_11 <- list(A = round(rnorm(50, 50, 3)), B = round(rnorm(100, 100, 3)), Q = round(rnorm(500, 500, 3)))
